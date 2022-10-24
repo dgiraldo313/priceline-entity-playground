@@ -5,9 +5,9 @@ import { parse } from "graphql";
 
 import resolvers from "./resolvers.js";
 import { buildSubgraphSchema } from "@apollo/subgraph";
-import ReviewsAPI from "./datasources/reviews-api.js";
+import InteractionsAPI from "./datasources/interactions_api.js";
 
-const typeDefs = parse(await readFile("./reviews.graphql", "utf8"));
+const typeDefs = parse(await readFile("./interactions.graphql", "utf8"));
 
 const server = new ApolloServer({
   schema: buildSubgraphSchema({
@@ -16,15 +16,15 @@ const server = new ApolloServer({
   })
 });
 
-const port = 4004;
-const subgraphName = "ReviewsService";
+const port = 4005;
+const subgraphName = "Interactions Service";
 
 const { url } = await startStandaloneServer(server, {
   listen: { port },
   async context() {
     return {
       dataSources: {
-        reviewsApi: new ReviewsAPI(),
+        interactionsApi: new InteractionsAPI(),
       },
     };
   },

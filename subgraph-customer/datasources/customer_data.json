@@ -1,0 +1,38 @@
+{
+  "cguid-12345": {
+    "fullName": "Daniel Giraldo",
+    "phoneNumber": "555-555-555",
+    "customerTrips": [
+      {
+        "offerNumber": "1234",
+        "productType": "HTL"
+      },
+      {
+        "offerNumber": "5678",
+        "productType": "CAR"
+      },
+      {
+        "offerNumber": "8910",
+        "productType": "FLY"
+      }
+    ]
+  },
+  "cguid-54321": {
+    "fullName": "Pedro Gutierrez",
+    "phoneNumber": "111-111-111",
+    "customerTrips": [
+      {
+        "offerNumber": "55577",
+        "productType": "HTL"
+      },
+      {
+        "offerNumber": "8899",
+        "productType": "CAR"
+      },
+      {
+        "offerNumber": "1010",
+        "productType": "FLY"
+      }
+    ]
+  }
+}

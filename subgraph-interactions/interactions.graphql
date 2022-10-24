@@ -1,0 +1,26 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
+
+type Query {
+  hotelFavoritesByCguid(
+    cguid: ID!
+  ): [HotelFavorite]
+}
+
+type HotelFavorite 
+  @key(fields: "id")
+{
+  id: ID
+  cityId: ID
+}
+
+type HotelInfo @key(fields: "id") {
+  id: ID
+  isFavorite(cguid: ID): Boolean
+}
+
+type Customer @key(fields: "cguid") {
+  cguid: ID
+  hotelFavorites: [HotelFavorite]
+}
+

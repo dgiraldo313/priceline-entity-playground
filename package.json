@@ -1,9 +1,11 @@
 {
   "private": true,
   "workspaces": [
-    "client",
-    "subgraph-locations",
-    "subgraph-reviews"
+    "subgraph-customer",
+    "subgraph-trips",
+    "subgraph-hotels",
+    "subgraph-reviews",
+    "subgraph-interactions"
   ],
   "engines": {
     "node": ">=16"

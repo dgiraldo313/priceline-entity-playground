@@ -1,0 +1,22 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
+
+type Query {
+  "Information for a given customer"
+  customerInfo(
+    "Unique identifier for the user"
+    cguid: ID!
+  ): Customer!
+}
+
+type Customer 
+  @key(fields: "offerNumbers")
+  @key(fields: "cguid")
+{
+  cguid: ID
+  "Customer's full name"
+  fullName: String!
+  "Custumer's phone number"
+  phoneNumber: String!
+  offerNumbers: [ID]
+}

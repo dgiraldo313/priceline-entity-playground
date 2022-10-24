@@ -1,0 +1,26 @@
+{
+  "101040": {
+    "name": "The New Yorker",
+    "starRating": "3.5"
+  },
+  "111050": {
+    "name": "La Quinta Inn",
+    "starRating": "3.5"
+  },
+  "123520": {
+    "name": "Marriot",
+    "starRating": "4"
+  },
+  "1234566": {
+    "name": "Hilton",
+    "starRating": "4"
+  },
+  "2020202": {
+    "name": "Wyndham",
+    "starRating": "3"
+  },
+  "896348": {
+    "name": "Hyatt",
+    "starRating": "4"
+  }
+}

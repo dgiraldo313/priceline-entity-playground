@@ -1,16 +1,20 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-const reviews = require("./reviews_data.json");
+const hotels = require("./hotels_data.json");
 
 /**
  * @typedef {import("apollo-datasource").DataSource} DataSource
  * @implements DataSource
  */
-export default class ReviewsAPI {
+export default class HotelsAPI {
   initialize() {}
 
-  getReviewsByHotelId(hotelId) {
-    return reviews[hotelId]
+  getHotelInfoById(hotelId) {
+    const matchedHotel = hotels[hotelId]
+    return {
+      id: hotelId,
+      ...matchedHotel
+    }
   }
 }

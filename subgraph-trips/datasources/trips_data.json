@@ -1,0 +1,48 @@
+{
+  "trips": [
+    {
+      "offerNumber": "1234",
+      "productType": "HTL",
+      "checkIn": "20221121",
+      "checkOut": "20221125",
+      "id": "101040"
+    },
+    {
+      "offerNumber": "5678",
+      "productType": "CAR",
+      "pickupDate": "20221121",
+      "dropoffDate": "20221125",
+      "pickupLocation": "Newark Airport",
+      "dropoffLocation": "JFK Airport"
+    },
+    {
+      "offerNumber": "8910",
+      "productType": "FLY",
+      "airportCode": "JFK",
+      "departureDate": "20221121",
+      "arrivalDate": "20221125"
+    },
+    {
+      "offerNumber": "55577",
+      "productType": "HTL",
+      "checkIn": "20221130",
+      "checkOut": "20221135",
+      "id": "111050"
+    },
+    {
+      "offerNumber": "8899",
+      "productType": "CAR",
+      "pickupDate": "20221121",
+      "dropoffDate": "20221125",
+      "pickupLocation": "Newark Airport",
+      "dropoffLocation": "JFK Airport"
+    },
+    {
+      "offerNumber": "1010",
+      "productType": "FLY",
+      "airportCode": "JFK",
+      "departureDate": "20221121",
+      "arrivalDate": "20221125"
+    }
+  ]
+}

@@ -2,12 +2,12 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { readFile } from "fs/promises";
 import { parse } from "graphql";
+import { buildSubgraphSchema } from "@apollo/subgraph";
 
 import resolvers from "./resolvers.js";
-import { buildSubgraphSchema } from "@apollo/subgraph";
-import ReviewsAPI from "./datasources/reviews-api.js";
+import CustomerAPI from "./datasources/customer-api.js";
 
-const typeDefs = parse(await readFile("./reviews.graphql", "utf8"));
+const typeDefs = parse(await readFile("./customer.graphql", "utf8"));
 
 const server = new ApolloServer({
   schema: buildSubgraphSchema({
@@ -16,15 +16,15 @@ const server = new ApolloServer({
   })
 });
 
-const port = 4004;
-const subgraphName = "ReviewsService";
+const port = 4001;
+const subgraphName = "profileQL";
 
 const { url } = await startStandaloneServer(server, {
   listen: { port },
   async context() {
     return {
       dataSources: {
-        reviewsApi: new ReviewsAPI(),
+        customerAPI: new CustomerAPI(),
       },
     };
   },

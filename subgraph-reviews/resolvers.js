@@ -1,19 +1,13 @@
 /** @type {import("@apollo/subgraph/dist/schema-helper").GraphQLResolverMap} */
 export default {
   Query: {
-    latestReviews(_, __, { dataSources }) {
-      return dataSources.reviewsAPI.getLatestReviews();
+    reviewsByHotelId(_, { hotelId }, { dataSources }) {
+      return dataSources.reviewsApi.getReviewsByHotelId(hotelId);
     },
   },
-  Mutation: {
-    submitReview(_, { review }, { dataSources }) {
-      const newReview = dataSources.reviewsAPI.submitReviewForLocation(review);
-      return {
-        code: 200,
-        success: true,
-        message: "success",
-        review: newReview,
-      };
-    },
-  },
+  HotelInfo: {
+    reviews(parent, __, { dataSources }) {
+      return dataSources.reviewsApi.getReviewsByHotelId(parent.id);
+    }
+  }
 };

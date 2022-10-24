@@ -1,35 +1,19 @@
-type Query {
-  latestReviews: [Review!]!
-}
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
 
-type Mutation {
-  submitReview(review: ReviewInput): SubmitReviewResponse
+type Query {
+  reviewsByHotelId(
+    hotelId: ID!
+  ): [Review]
 }
 
 type Review {
-  id: ID!
-  "Written text"
+  reviewerName: String
   comment: String
-  "A number from 1 - 5 with 1 being lowest and 5 being highest"
-  rating: Int
+  score: String
 }
 
-input ReviewInput {
-  "Written text"
-  comment: String!
-  "A number from 1 - 5 with 1 being lowest and 5 being highest"
-  rating: Int!
-  "Location Id"
-  locationId: ID!
-}
-
-type SubmitReviewResponse {
-  "Similar to HTTP status code, represents the status of the mutation"
-  code: Int!
-  "Indicates whether the mutation was successful"
-  success: Boolean!
-  "Human-readable message for the UI"
-  message: String!
-  "Newly created review"
-  review: Review
+type HotelInfo @key(fields: "id") {
+  id: ID
+  reviews: [Review]
 }

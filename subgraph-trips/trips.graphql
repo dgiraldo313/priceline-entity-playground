@@ -1,0 +1,57 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
+
+type Query {
+  tripByOfferNumbers(
+    offerNumbers: [ID!]!
+  ): [Trip]
+}
+
+enum ProductTypes {
+  HTL
+  FLY
+  CAR
+}
+
+interface GenericTrip {
+  offerNumber: ID!
+  "Product type (ie. HTL, FLY, CAR)"
+  productType: ProductTypes!
+}
+
+type HotelTrip implements GenericTrip @key(fields: "id") {
+  offerNumber: ID!
+  id: ID
+  productType: ProductTypes!
+  checkIn: String
+  checkOut: String
+}
+
+type FlightTrip implements GenericTrip {
+  offerNumber: ID!
+  productType: ProductTypes!
+  departureDate: String
+  arrivalDate: String
+  aiportCode: String
+}
+
+type RentalCarTrip implements GenericTrip {
+  offerNumber: ID!
+  productType: ProductTypes!
+  pickupDate: String
+  dropoffDate: String
+  pickupLocation: String
+  dropoffLocation: String
+}
+
+union Trip = HotelTrip | FlightTrip | RentalCarTrip
+
+
+type Customer 
+  @key(fields: "offerNumbers")
+{
+  offerNumbers: [ID]
+  trips: [Trip!]
+}
+
+
