@@ -10,7 +10,6 @@ type Query {
 }
 
 type Customer 
-  @key(fields: "offerNumbers")
   @key(fields: "cguid")
 {
   cguid: ID
@@ -18,5 +17,12 @@ type Customer
   fullName: String!
   "Custumer's phone number"
   phoneNumber: String!
-  offerNumbers: [ID]
+  upcomingTrips(
+    startDate: String,
+    endDate: String
+  ): [CustomerTrip]
+}
+
+type CustomerTrip @key(fields: "offerNumber") {
+  offerNumber: ID
 }

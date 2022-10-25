@@ -18,9 +18,11 @@ export default {
       }
     },
   },
-  Customer: {
-    trips(parent, __, { dataSources }) {
-      return dataSources.tripsApi.getTripsByOfferNumbers(parent.offerNumbers)
+  CustomerTrip: {
+    tripDetails(parent, __, {dataSources}) {
+      return dataSources.tripsApi
+        .getTripsByOfferNumbers([parent.offerNumber])
+        .find(trip => trip.offerNumber === parent.offerNumber)
     }
   }
 };
