@@ -47,11 +47,11 @@ type RentalCarTrip implements GenericTrip {
 union Trip = HotelTrip | FlightTrip | RentalCarTrip
 
 
-type Customer 
-  @key(fields: "offerNumbers")
+type CustomerTrip
+  @key(fields: "offerNumber")
 {
-  offerNumbers: [ID]
-  trips: [Trip!]
+  offerNumber: ID
+  tripDetails: Trip
 }
 
 

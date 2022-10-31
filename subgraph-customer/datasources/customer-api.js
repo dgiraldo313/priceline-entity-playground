@@ -10,12 +10,10 @@ const custumerInfo = require("./customer_data.json");
 export default class CustomerAPI {
   initialize() {}
 
-  // SELECT * FROM locations
   getCustomerInfo(cguid) {
     const matchedCustInfo = custumerInfo[cguid]
     return {  
       cguid,
-      offerNumbers: matchedCustInfo.customerTrips.map(t => t.offerNumber),
       ...matchedCustInfo
     }
   }

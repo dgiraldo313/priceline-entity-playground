@@ -8,6 +8,10 @@ export default {
   Customer: {
     __resolveReference(ref, { dataSources }, info) {
       return dataSources.customerAPI.getCustomerInfo(ref.cguid)
+    },
+    upcomingTrips: (root, { startDate, endDate}, context) => {
+      // Do some filtering logic based on state and end date
+      return root.customerTrips
     }
   }
 };
